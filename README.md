@@ -1,12 +1,15 @@
-# Youtube Redubbing Multilingual Summarizer
+# Youtube Redubbing Multilingual Summarizer with Chatbot
 
-A Python project to **summarize YouTube videos and generate multilingual redubbed audio** using AI models like Whisper and text-to-speech.
+A Python project to **summarize YouTube videos, redub them in multiple languages, and provide an interactive Q&A chatbot** for the video content.
 
 ## Features
 
 - Extract audio from YouTube videos
 - Generate accurate transcripts
 - Summarize long videos into concise points
-- Support for multiple languages
-- Option to redub videos in original Audio voice
+- Redub videos in multiple languages
+- **Interactive chatbot** to ask questions about the video content
+- Stores transcripts and summaries in a **database** for quick retrieval
+
+
 
