@@ -1,0 +1,5 @@
+streamlit
+transformers
+tts
+torch
+yt-dlp
