@@ -37,7 +37,27 @@ model = whisper.load_model("base")
 result = model.transcribe("test_audio.mp3")
 with open("transcript.txt","w",encoding="utf-8") as f:
     f.write(result["text"])
-print("Transcription Saved successfully")
+
+
+import re
+import sqlite3
+
+#Text Cleaning and chunking
+def clean_and_chunk_text(text , chunk_size = 500):
+    cleaned_set = re.sub(r"\[d\+:\d+:\d+\.\d+\],",""  ,text)
+    cleaned_text = re.sub(r"\s+" , " " , cleaned_set)
+    chunks = [cleaned_text[i:i+chunk_size] for i in range(0,len(cleaned_text),chunk_size)]
+    return chunks
+#SQLite Storage Database
+def store_transcript(video_id,language , chunks):
+    conn = sqlite3.connect('transcripts.db')
+    cursor = conn.cursor()
+    cursor.execute("CREATE TABLE IF NOT EXISTS transcripts (video_id  TEXT , language TEXT , chunk_id INTEGER , text TEXT )")
+    for i , chunk in enumerate(chunks):
+        cursor.execute("INSERT INTO transcripts (video_id , language , chunk_id , text) VALUES (? , ?, ? ,?)", (video_id , language , i , chunk))
+        conn.commit()
+        conn.close()
+        
 
 
 
