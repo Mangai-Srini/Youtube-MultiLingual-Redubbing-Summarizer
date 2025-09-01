@@ -55,9 +55,9 @@ def store_transcript(video_id,language , chunks):
     cursor.execute("CREATE TABLE IF NOT EXISTS transcripts (video_id  TEXT , language TEXT , chunk_id INTEGER , text TEXT )")
     for i , chunk in enumerate(chunks):
         cursor.execute("INSERT INTO transcripts (video_id , language , chunk_id , text) VALUES (? , ?, ? ,?)", (video_id , language , i , chunk))
-        conn.commit()
-        conn.close()
-        
+    conn.commit()
+    conn.close()
+
 
 
 
