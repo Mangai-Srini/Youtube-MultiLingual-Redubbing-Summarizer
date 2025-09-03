@@ -1,5 +1,16 @@
-streamlit
-transformers
-tts
-torch
-yt-dlp
+streamlit==1.24.0
+youtube-transcript-api==0.6.2
+transformers==4.31.0
+tts==0.15.4
+pytube==15.0.0
+openai-whisper==20230124
+scikit-learn==1.2.2
+sqlite3
+ffmpeg-python==0.2.0
+rouge==1.0.1
+numpy==1.24.4
+torch==2.0.1
+requests==2.31.0
+librosa==0.10.1
+sounddevice==0.4.6
+yt-dlp==2025.10.7  # Latest as of 2025
