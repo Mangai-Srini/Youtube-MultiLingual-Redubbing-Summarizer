@@ -1,5 +1,8 @@
 #Extract the audio from video
 import yt_dlp
+import whisper
+import re
+import sqlite3
 
 
 def download_audio(url, output_file="test_audio.mp3"):
@@ -39,14 +42,13 @@ with open("transcript.txt","w",encoding="utf-8") as f:
     f.write(result["text"])
 
 
-import re
-import sqlite3
 
 #Text Cleaning and chunking
+
 def clean_and_chunk_text(text , chunk_size = 500):
-    cleaned_set = re.sub(r"\[d\+:\d+:\d+\.\d+\],",""  ,text)
-    cleaned_text = re.sub(r"\s+" , " " , cleaned_set)
-    chunks = [cleaned_text[i:i+chunk_size] for i in range(0,len(cleaned_text),chunk_size)]
+    cleaned_set = re.sub(r"\[\d+:\d+:\d+\.\d+.*?\]", "", text)  # removes timestamps
+    cleaned_text = re.sub(r"\s+", " ", cleaned_set).strip()
+    chunks = [cleaned_text[i:i+chunk_size] for i in range(0, len(cleaned_text), chunk_size)]
     return chunks
 #SQLite Storage Database
 def store_transcript(video_id,language , chunks):
