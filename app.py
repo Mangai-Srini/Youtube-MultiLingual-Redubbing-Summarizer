@@ -40,8 +40,7 @@ model = whisper.load_model("base")
 result = model.transcribe("test_audio.mp3")
 with open("transcript.txt","w",encoding="utf-8") as f:
     f.write(result["text"])
-
-
+print(f"Transcription completed. Transcript saved to transcript.txt")
 
 #Text Cleaning and chunking
 
