@@ -51,6 +51,18 @@ import soundfile as sf
 #LLM integration(offline/local capable)
 from transformers import AutoModelForCausalLM,GPT2LMHeadModel
 from ollama #loacal llama integration
+from langchain.llms import Llamacpp
+from langchain.callbacks.managers import CallbackManager
+from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+
+#Database/Vector storage
+import chromadb
+from chromadb.config import Settings
+import faiss
+
+#Web framework Alternatives
+import gradio as gr
+
 
 
 
