@@ -62,6 +62,16 @@ import faiss
 
 #Web framework Alternatives
 import gradio as gr
+import flask
+from flask import Flask,render_template,request,jsonify,send_file
+
+#Configuration and logging
+import yaml
+from rogue_score import rogue_scorer
+import nltk
+
+print("All libraries imported successfully")
+
 
 
 
