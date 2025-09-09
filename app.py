@@ -50,7 +50,7 @@ import soundfile as sf
 
 #LLM integration(offline/local capable)
 from transformers import AutoModelForCausalLM,GPT2LMHeadModel
-from ollama #loacal llama integration
+import ollama  # For local Llama models
 from langchain.llms import Llamacpp
 from langchain.callbacks.managers import CallbackManager
 from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
