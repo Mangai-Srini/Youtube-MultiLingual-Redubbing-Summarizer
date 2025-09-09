@@ -14,6 +14,45 @@ import logging
 import hashlib
 import uuid
 import asyncio
+import time
+import threading
+import subprocess
+from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor
+import subprocess
+import tempfile
+
+# Core Libraries
+import streamlit as st
+import pandas as pd
+import numpy as np
+from PIL import Image
+import plotly.express as px
+import plotly.graph_objects as go
+
+#video/audio processing
+import yt_dlp
+import ffmpeg
+from pydub import AudioSegment
+from pydub.effects import normalize
+
+#Ai/Ml libraries used
+import whisper
+import torch
+from transformers import (
+    AutoTokenizer,AutoModelforSeq2SeqLM,
+    AutoModel,pipeline,MarianMTModel,MarianTokenizer
+)
+from sentence_transformers import SentenceTransformer
+from TTS.api import TTS
+import librosa
+import soundfile as sf
+
+#LLM integration(offline/local capable)
+from transformers import AutoModelForCausalLM,GPT2LMHeadModel
+from ollama #loacal llama integration
+
+
 
 
 
