@@ -1,16 +1,27 @@
-streamlit==1.24.0
-youtube-transcript-api==0.6.2
-transformers==4.31.0
-tts==0.15.4
-pytube==15.0.0
-openai-whisper==20230124
-scikit-learn==1.2.2
-sqlite3
+# Project Dependencies
+streamlit==1.32.2
+pandas==2.2.1
+numpy==1.26.4
+Pillow==10.2.0
+plotly==5.19.0
+yt-dlp==2024.03.10
 ffmpeg-python==0.2.0
-rouge==1.0.1
-numpy==1.24.4
-torch==2.0.1
-requests==2.31.0
+pydub==0.25.1
+openai-whisper==20231117
+torch==2.2.1
+transformers==4.38.2
+sentence-transformers==2.7.0
+TTS==0.22.0
 librosa==0.10.1
-sounddevice==0.4.6
-yt-dlp==2025.10.7  # Latest as of 2025
+soundfile==0.12.1
+chromadb==0.4.24
+faiss-cpu==1.8.0
+ollama==0.1.9
+langchain==0.1.13
+rouge-score==0.1.2
+nltk==3.8.1
+pytube==15.0.0
+
+# Development/Utility Dependencies
+dataclasses
+PyYAML
