@@ -26,8 +26,8 @@ def download_audio(url, output_file="test_audio.mp3"):
     except Exception as e:
         print(f"Error: {e}")
         return None
-
-url = "https://www.youtube.com/watch?v=HMKQ4V_d0A8"
+    
+url = str(input("Enter the video url : "))
 audio_file = download_audio(url)
 if audio_file:
     print(f"Downloaded {audio_file} successfully!")
@@ -58,6 +58,22 @@ def store_transcript(video_id,language , chunks):
         cursor.execute("INSERT INTO transcripts (video_id , language , chunk_id , text) VALUES (? , ?, ? ,?)", (video_id , language , i , chunk))
     conn.commit()
     conn.close()
+
+#Retrieve the data from database
+def retrieve_transcript(video_id , language):
+    conn = sqlite3.connect('transcript.db')
+    cursor = conn.cursor()
+    cursor.execute("Select text from transcripts where video_id = ? and language = ? order by chunk_id", (video_id , language))
+    result = cursor.fetchall()
+    conn.close()
+    text_chunks = [chunk[0] for chunk in result]
+    return " ".join(text_chunks)
+chunks_from_db = retrieve_transcript(url)
+print(chunks_from_db)
+
+
+
+
 
 
 
