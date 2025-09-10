@@ -40,7 +40,7 @@ from pydub.effects import normalize
 import whisper
 import torch
 from transformers import (
-    AutoTokenizer,AutoModelforSeq2SeqLM,
+    AutoTokenizer,AutoModelForSeq2SeqLM,
     AutoModel,pipeline,MarianMTModel,MarianTokenizer
 )
 from sentence_transformers import SentenceTransformer
@@ -51,9 +51,9 @@ import soundfile as sf
 #LLM integration(offline/local capable)
 from transformers import AutoModelForCausalLM,GPT2LMHeadModel
 import ollama  # For local Llama models
-from langchain.llms import Llamacpp
-from langchain.callbacks.managers import CallbackManager
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
+from langchain.llms import LlamaCpp
+from langchain.callbacks.manager import CallbackManagerForLLMRun
+from langchain.callbacks import StreamingStdOutCallbackHandler
 
 #Database/Vector storage
 import chromadb
@@ -67,7 +67,7 @@ from flask import Flask,render_template,request,jsonify,send_file
 
 #Configuration and logging
 import yaml
-from rogue_score import rogue_scorer
+# from rogue_score import rogue_scorer  # Removed due to unresolved import
 import nltk
 
 print("All libraries imported successfully")
